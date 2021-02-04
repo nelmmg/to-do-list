@@ -1,0 +1,25 @@
+.MyList {
+  display: flex;
+  margin-top: 30px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.MyList__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.MyList__items {
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-top: 10px;
+}
+
+.MyList__items::-webkit-scrollbar {
+  display: none;
+}

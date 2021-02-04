@@ -1,0 +1,19 @@
+.AddToList {
+  display: flex;
+  padding-top: 10px;
+}
+
+.AddToList > form {
+  display: flex;
+  flex: 1;
+}
+
+.AddToList > form > input {
+  padding: 10px;
+  margin: 0 10px 0px 10px;
+}
+
+.AddToList > form > button {
+  padding: 10px;
+  margin: 0 0px 0px 10px;
+}
