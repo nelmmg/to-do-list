@@ -13,14 +13,14 @@
   width: fit-content;
 }
 
-.MyList__items {
+.MyList__tasks {
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   margin-top: 10px;
 }
 
-.MyList__items::-webkit-scrollbar {
+.MyList__tasks::-webkit-scrollbar {
   display: none;
 }
 

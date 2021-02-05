@@ -1,43 +1,46 @@
 import React, { useState, useEffect } from "react";
-import Item from "./Item";
+import Task from "./Task";
 import './MyList.css';
-
+import db, { auth } from './firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function MyList() {
-    const [items, setItems] = useState([]);
+    const [tasks, setTasks] = useState([]);
+    const [user] = useAuthState(auth);
 
     useEffect(() => {
-        const temp = [];
-        for (let index = 0; index < 15; index++) {
-            console.log("Adding...")
-            temp.push({
-                key: index
-            });
-        }
-        setItems(temp.map((item) => item));
+        db.collection('users').doc(user.uid).collection('tasks').orderBy("timestamp", "desc").onSnapshot(snapshot => {
+            setTasks(snapshot.docs.map(doc => (
+                {
+                    id: doc.id,
+                    data: doc.data()
+                }
+            )));
+        });
     }, []);
+
 
     return (
         <div className="MyList">
             <div className="MyList__content">
                 My tasks:
-                <div className="MyList__items">
-                    {items.map((item, index) => (
-                        <div key={index}>
-                            <Item />
+                <div className="MyList__tasks">
+                    {tasks.map((task, index) => (
+                        <div key={task.id}>
+                            <Task id={task.id} desc={task.data.desc} done={task.data.done} />
                             <div className="MyList__divisor" />
                         </div>
                     ))}
 
                     {/* Refactor to a method */}
-                    {items.length > 0 &&
+                    {tasks.length > 0 &&
                         <div className="MyList__label">
                             End of the list
                         </div>
                     }
-                    {items.length === 0 &&
+                    {tasks.length === 0 &&
                         <div className="MyList__label">
-                            No items!
+                            No tasks!
                         </div>
                     }
                 </div>

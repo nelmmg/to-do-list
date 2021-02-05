@@ -1,14 +1,14 @@
-.Item {
+.Task {
   display: flex;
   margin-bottom: 10px;
   margin-top: 10px;
   align-items: center;
 }
 
-.Item__status {
+.Task__status {
 }
 
-.Item__text {
+.Task__text {
   position: relative;
   overflow-wrap: anywhere;
   flex: 1;
@@ -21,12 +21,12 @@
 }
 
 /* TODO Add drag and drop efffect for reordering */
-/* .Item__text:hover {
+/* .Task__text:hover {
   background-color: rgb(34, 211, 211, 0.5);
   cursor: pointer;
 } */
 
-.Item__actions {
+.Task__actions {
   padding-left: 10px;
 }
 
