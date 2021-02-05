@@ -8,10 +8,10 @@ function MyList() {
 
     useEffect(() => {
         const temp = [];
-        for (let index = 0; index < 90; index++) {
+        for (let index = 0; index < 15; index++) {
             console.log("Adding...")
             temp.push({
-                "key": index
+                key: index
             });
         }
         setItems(temp.map((item) => item));
@@ -20,20 +20,23 @@ function MyList() {
     return (
         <div className="MyList">
             <div className="MyList__content">
-                My items:
+                My tasks:
                 <div className="MyList__items">
-                    {items.map(item => (
-                        <Item key={item.key} />
+                    {items.map((item, index) => (
+                        <div key={index}>
+                            <Item />
+                            <div className="MyList__divisor" />
+                        </div>
                     ))}
 
                     {/* Refactor to a method */}
                     {items.length > 0 &&
-                        <div>
-                            End of the list.
+                        <div className="MyList__label">
+                            End of the list
                         </div>
                     }
                     {items.length === 0 &&
-                        <div>
+                        <div className="MyList__label">
                             No items!
                         </div>
                     }

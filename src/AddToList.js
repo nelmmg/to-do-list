@@ -25,14 +25,14 @@ function AddToList() {
         <div className="AddToList">
             <form>
                 <TextField
-                    label="My task"
+                    label="New task"
                     variant="outlined"
                     value={input}
                     fullWidth
                     onChange={(e) => setInput(e.target.value)} />
                 <Button variant="outlined" onClick={addThisToList}
                     color="default" type="submit">
-                    Add! </Button>
+                    Add</Button>
             </form>
         </div>
     );

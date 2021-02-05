@@ -23,3 +23,16 @@
 .MyList__items::-webkit-scrollbar {
   display: none;
 }
+
+.MyList__divisor {
+  /* padding-bottom: 10px; */
+  border-bottom: dotted 5px rgb(181, 176, 176);
+  margin-left: 70px;
+  margin-right: 70px;
+  align-content: center;
+}
+
+.MyList__label {
+  margin-top: 10px;
+  text-align: center;
+}

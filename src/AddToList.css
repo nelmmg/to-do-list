@@ -13,7 +13,33 @@
   margin: 0 10px 0px 10px;
 }
 
+.AddToList > form > input:focus {
+  padding: 10px;
+  margin: 0 10px 0px 10px;
+}
+
 .AddToList > form > button {
   padding: 10px;
   margin: 0 0px 0px 10px;
+  text-transform: inherit !important;
+  background-color: rgb(34, 211, 211) !important;
+  color: white;
+  font-size: revert !important;
+  font-family: cursive !important;
+}
+
+/* Colors of Material UI */
+.MuiFormLabel-root {
+  font-size: revert !important;
+  font-family: cursive !important;
+}
+
+.MuiFormLabel-root.Mui-focused {
+  color: rgb(34, 211, 211) !important;
+  font-size: revert !important;
+  font-family: cursive !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgb(34, 211, 211) !important;
 }

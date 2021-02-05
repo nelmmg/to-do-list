@@ -1,0 +1,13 @@
+.Login {
+  display: flex;
+  flex: 1;
+  align-items: start;
+  margin: auto;
+}
+
+.Login > button {
+  margin-top: 50px;
+  text-transform: inherit !important;
+  background-color: rgb(34, 211, 211) !important;
+  color: white;
+}

@@ -7,29 +7,31 @@ function Item() {
 
     const [checked, setChecked] = useState(true);
 
-    const handleChange = (event) => {
-        setChecked(event.target.checked);
+    const handleChange = (e) => {
+        e.preventDefault();
+        setChecked(e.target.checked);
     };
 
     const deleteItem = (e) => {
         e.preventDefault();
-        alert("Deleted!")
+        setChecked(!checked)
     }
 
     return (
         <div className="Item">
             <div className="Item__status">
                 <Checkbox
+                    checked={checked}
+                    onChange={handleChange}
                     color="primary"
                     inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
             </div>
             <div className="Item__text">
-                My Textasdasdaksdpokasp odakpsodkapsodkaposodkpaskdpaskpdakspd kapok
+                My Textasdasdaksdpokaspodakpsodkapsodkaposodkpaskdpaskpdakspdkapok
             </div>
             <div className="Item__actions">
-                <HighlightOffOutlinedIcon onClick={deleteItem} >
-                </HighlightOffOutlinedIcon>
+                <HighlightOffOutlinedIcon onClick={deleteItem} />
             </div>
         </div>
     );
