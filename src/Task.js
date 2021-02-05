@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Task.css';
 import Checkbox from '@material-ui/core/Checkbox';
 import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
@@ -6,15 +6,27 @@ import db, { auth } from './firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import ConfirmDialog from './ConfirmDialog';
 
-function Task({ id, desc, done }) {
+function Task({ id }) {
 
-    const [checked, setChecked] = useState(done);
     const [user] = useAuthState(auth);
+
+    const [checked, setChecked] = useState(false);
     const [confirmOpen, setConfirmOpen] = useState(false);
+    const [desc, setDesc] = useState("");
+
+    useEffect(() => {
+        db.collection('users').doc(user.uid).collection('tasks').doc(id).onSnapshot(snapshot => {
+            setChecked(snapshot.data().done);
+            setDesc(snapshot.data().desc);
+        });
+    }, []);
+
 
     const handleChange = (e) => {
         e.preventDefault();
-        setChecked(e.target.checked);
+        const isDone = e.target.checked;
+        setChecked(isDone);
+        db.collection('users').doc(user.uid).collection("tasks").doc(id).update({ done: isDone });
     };
 
     const deleteTask = (taskId) => {

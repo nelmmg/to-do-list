@@ -12,8 +12,7 @@ function MyList() {
         db.collection('users').doc(user.uid).collection('tasks').orderBy("timestamp", "desc").onSnapshot(snapshot => {
             setTasks(snapshot.docs.map(doc => (
                 {
-                    id: doc.id,
-                    data: doc.data()
+                    id: doc.id
                 }
             )));
         });
@@ -25,9 +24,9 @@ function MyList() {
             <div className="MyList__content">
                 My tasks:
                 <div className="MyList__tasks">
-                    {tasks.map((task, index) => (
+                    {tasks.map((task) => (
                         <div key={task.id}>
-                            <Task id={task.id} desc={task.data.desc} done={task.data.done} />
+                            <Task id={task.id} />
                             <div className="MyList__divisor" />
                         </div>
                     ))}
