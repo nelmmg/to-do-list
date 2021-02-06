@@ -16,8 +16,10 @@ function Task({ id }) {
 
     useEffect(() => {
         db.collection('users').doc(user.uid).collection('tasks').doc(id).onSnapshot(snapshot => {
-            setChecked(snapshot.data().done);
-            setDesc(snapshot.data().desc);
+            if (snapshot.data()) {
+                setChecked(snapshot.data().done);
+                setDesc(snapshot.data().desc);
+            }
         });
     }, []);
 
