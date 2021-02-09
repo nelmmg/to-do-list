@@ -6,6 +6,7 @@ import MyList from "./MyList";
 import { auth } from './firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           </div>
         }
 
+
         <div className="App__body__title">
           My Todo List
         </div>
@@ -31,7 +33,11 @@ function App() {
               <MyList />
             </div>
           )}
+        <div className="App__git">
+          <GitHubIcon onClick={() => window.open("https://github.com/nelmmg/to-do-list")} />
+        </div>
       </div>
+
     </div>
   );
 }
